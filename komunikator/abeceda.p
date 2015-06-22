@@ -1,8 +1,8 @@
 #include <futurocube>
 
-new s=0
+new s=0 //pomocná proměnná pro určení strany (využívám ve funkci DrawPoint)
 
-new znaky[27][]=[
+new znaky[27][]=[ //Pole znaků: Čísla v závorkách představují body, které se na stěně rozsvítí. (9 nerozsvítí nic, bylo pouze potřeba mít u všech prvků stejný rozsah)
 	[1,3,4,5,6,8,9,9], //a=0
 	[0,3,4,6,7,9,9,9], //b=1
 	[0,1,3,6,7,9,9,9],  //c=2
@@ -32,19 +32,37 @@ new znaky[27][]=[
 	[0,2,3,4,5,8,9,9] //4=26
 ]
 
-vypisZnak(znak) {
+new morse[23] = [ //pole kódů pro znaky v morseovce: 1=tečka, 2=čárka
+	1200, //a
+	2111, //b
+	2121, //c
+	2110, //d
+	1000, //e
+	1121, //f
+	2210, //g
+	1111, //h
+	1100, //i
+	1222, //j
+	2120, //k
+	1211, //l
+	2200, //m
+	2100, //n
+	2220, //o
+	1221, //p
+	1210, //r
+	1110, //s
+	2000, //t
+	1120, //u
+	1112, //v
+	2122, //y
+	2211 //z
+	]
+
+vypisZnak(znak) { //vypíše zadaný znak na stěnu s=0
 	ClearCanvas()
+	s=0
 	for (new i=0;i<sizeof znaky[];i++) {
 		DrawPoint(_w(s,znaky[znak][i]))
 	}
 	PrintCanvas()
 }
-
-/*main() {
-	SetRgbColor(0,100,200)
-	for (new i=0;i<sizeof znaky;i++) {
-		vypisZnak(i)
-		Delay(1000)
-	}
-	Sleep()
-}*/
