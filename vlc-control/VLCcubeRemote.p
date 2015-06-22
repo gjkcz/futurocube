@@ -37,19 +37,19 @@ main()
     {
         if (eTapSide()==2)
         {        //vol-
-            printf("vol-")
+            printf("vol-\r\n")
             Vibrate(200)
             AckMotion();
         }
         if (eTapSide()==3)
         {          //vol+
-            printf("vol+")
+            printf("vol+\r\n")
             Vibrate(200)
             AckMotion();
         }
         if (eTapSide()==5)
         {          //play/pause
-            printf("pp")
+            printf("pause\r\n")
             Vibrate(200)
             AckMotion();
         }

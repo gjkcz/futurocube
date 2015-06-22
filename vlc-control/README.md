@@ -8,3 +8,27 @@ Pro první použití doporuèujeme umístit Futurocube tak, aby zapojený USB kabel sm
 
 Poklepy na levou a pravou stranu Futurocube se znaménky + a – lze snadno ovládat nastavení hlasitosti VLC media player.
 
+
+## Setting up VLC for communication with futurocube
+
+In your VLC
+
+Go to tools- prefferences- all - interface - main interface - and check Web
+
+Then go to  Lua (unfold main interface)  -and set up your password, host and port
+
+host -localhost
+
+port -8080
+
+password -12345
+
+Save and restart your VLC.
+
+Download Node from this page - https://nodejs.org/
+
+Install and then start command prompt
+
+Install VLC control by typing  `npm install vlc-control-node futurocube-serial`  and pressing enter
+
+Now you are ready to use our VLC control programme.
