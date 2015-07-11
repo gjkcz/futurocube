@@ -133,8 +133,7 @@ posilam() { //Toto dělá, pokud je vyhodnocena jako nadřízená kostka.
 						Default() //ohlásí chybu (červené "x" na stěnu 0)
 					}
 					new prenos[2] = [1, j]; //vytvoří soubor pro odeslání ?
-					RadioMessage(prenos) //odešle data
-					if (RadioMessage(prenos)) printf("sent\r\n") //ohlášení, že prenos byl odeslán
+					if (RadioMessage(prenos)) printf("sent\r\n") //odeslání dat, ohlášení, že prenos byl odeslán
 					Delay(1000)
 					ClearCanvas()
 					znakNalezen=false
