@@ -26,7 +26,7 @@ dot() { //vypíše tečku na stěnu 2
 	PrintCanvas()
 }
 
-space() { /vypíše mezeru ("_") na stěnu 4
+space() { //vypíše mezeru ("_") na stěnu 4
 	s=4
 	DrawPoint(_w(s,0))
 	DrawPoint(_w(s,1))
@@ -122,7 +122,8 @@ posilam() { //Toto dělá, pokud je vyhodnocena jako nadřízená kostka.
 					PrintCanvas() //napíše mezeru na stěnu 0
 					Delay(500)
 					ClearCanvas()
-					for (new j=0; j<sizeof morse; j++) { //porovná kód s polem znaků v morseovce, pomocí indexu najitého prvku vyhledá znak v abededě
+					new j=0
+					for (j=0; j<sizeof morse; j++) { //porovná kód s polem znaků v morseovce, pomocí indexu najitého prvku vyhledá znak v abededě
 						if(morse[j] == kod) {
 							znakNalezen=true //znak byl nalezen
 							vypisZnak(j) //napíše zadaný znak na stěnu 0
@@ -132,8 +133,10 @@ posilam() { //Toto dělá, pokud je vyhodnocena jako nadřízená kostka.
 					if(znakNalezen==false) { //Pokud znak nebyl nalezen:...
 						Default() //ohlásí chybu (červené "x" na stěnu 0)
 					}
-					new prenos[2] = [1, j]; //vytvoří soubor pro odeslání ?
-					if (RadioMessage(prenos)) printf("sent\r\n") //odeslání dat, ohlášení, že prenos byl odeslán
+					else { //Pokud znak byl nalezen:...
+						new prenos[2] = [1, j] //vytvoří soubor pro odeslání
+						if (RadioMessage(prenos)) printf("sent\r\n") //odeslání dat, ohlášení, že prenos byl odeslán
+					}
 					Delay(1000)
 					ClearCanvas()
 					znakNalezen=false
@@ -150,7 +153,7 @@ main()
 {
 	ICON(icon) //zobrazí ikonu
 	RadioSetBinary() //?
-	RadioInit("TESTGAME");  //okopírováno z examplu, tento řádek údajně nefunguje
+	RadioInit("KOMUNIKATOR");
 	printf("order: %lu\r\n",RadioGetOrder()); //vypíše do konzole instrukci
 	printf("session id: %lu\r\n",RadioGetSessionID()); //napíše do konzole ID spojení
 	if (RadioGetOrder() == 0) { //když je dominantní kostka, vypíše do konzole "posílám" a spustí funkci posilam()
