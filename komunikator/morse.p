@@ -9,7 +9,7 @@ new icon[]=[ICON_MAGIC1,ICON_MAGIC2,2,1,I1,I2,I1,I2,I2,I2,I3,I3,I3,''cge_n_SPACE
 
 new kod=0 //proměnná, do které se ukládají úhozy na kostce (tečky/čárky) - vznikne zde čtyřmístný kód
 new ik=0 //pomocná proměnná pro číslování indexů v kódu
-new znakNalezen=false
+new bool:znakNalezen=false
 new motion
 
 line() { //vypíše čárku na stěnu 3
@@ -49,7 +49,7 @@ Default() { //tímto ohlásí chybu, když nenajde v poli odpovídající kód -
 
 ctu() { //Toto dělá, pokud je při spojení vyhodnocena jako podřízená kostka.
 	new data[50] //vyhradí místo v paměti pro přijatá data
-	while(1)
+	for(;;)
 	{
 		Sleep(200);
 		if (IsRadioMsgReadable())
@@ -74,7 +74,7 @@ posilam() { //Toto dělá, pokud je vyhodnocena jako nadřízená kostka.
 	new rady=1 //Pomocná proměnná pro vytvoření mocniny 10, kterou potřebuju níže
 	SetRgbColor(0,100,200)
 	RegAllSideTaps()
-	while(1) {
+	for(;;) {
 		line()
 		dot()
 		space() //označí tlačítka
@@ -134,7 +134,9 @@ posilam() { //Toto dělá, pokud je vyhodnocena jako nadřízená kostka.
 						Default() //ohlásí chybu (červené "x" na stěnu 0)
 					}
 					else { //Pokud znak byl nalezen:...
-						new prenos[2] = [1, j] //vytvoří soubor pro odeslání
+						new prenos[2];
+						prenos[0] = 1;
+						prenos[1] = j; //vytvoří soubor pro odeslání
 						if (RadioMessage(prenos)) printf("sent\r\n") //odeslání dat, ohlášení, že prenos byl odeslán
 					}
 					Delay(1000)
