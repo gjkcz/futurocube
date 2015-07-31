@@ -2,7 +2,7 @@
 
 new s=0 //pomocná proměnná pro určení strany (využívám ve funkci DrawPoint)
 
-new znaky[27][]=[ //Pole znaků: Čísla v závorkách představují body, které se na stěně rozsvítí. (9 nerozsvítí nic, bylo pouze potřeba mít u všech prvků stejný rozsah)
+new znaky[30][]=[ //Pole znaků: Čísla v závorkách představují body, které se na stěně rozsvítí. (9 nerozsvítí nic, bylo pouze potřeba mít u všech prvků stejný rozsah)
 	[1,3,4,5,6,8,9,9], //a=0
 	[0,3,4,6,7,9,9,9], //b=1
 	[0,1,3,6,7,9,9,9],  //c=2
@@ -19,20 +19,23 @@ new znaky[27][]=[ //Pole znaků: Čísla v závorkách představují body, kter�
 	[0,3,4,5,6,8,9,9], //n=13
 	[0,1,2,3,5,6,7,8], //o=14
 	[0,1,3,4,6,9,9,9], //p=15
-	[0,1,3,4,6,8,9,9], //r=16
-	[1,2,4,6,7,9,9,9], //s=17
-	[0,1,2,4,7,9,9,9], //t=18
-	[0,2,3,5,6,7,8,9], //u=19
-	[0,2,3,5,7,9,9,9], //v=20
-	[0,2,4,7,9,9,9,9], //y=21
-	[1,2,4,6,7,9,9,9], //z=22
-	[1,3,4,7,9,9,9,9], //1=23
-	[0,1,4,7,8,9,9,9], //2=24
-	[0,1,2,4,5,6,7,8], //3=25
-	[0,2,3,4,5,8,9,9] //4=26
+	[0,1,3,4,8,9,9,9], //q=16
+	[0,1,3,4,6,8,9,9], //r=17
+	[1,2,4,6,7,9,9,9], //s=18
+	[0,1,2,4,7,9,9,9], //t=19
+	[0,2,3,5,6,7,8,9], //u=20
+	[0,2,3,5,7,9,9,9], //v=21
+	[0,2,3,4,5,6,7,8], //w=22
+	[0,2,4,6,8,9,9,9], //x=23
+	[0,2,4,7,9,9,9,9], //y=24
+	[0,1,2,4,6,7,8,9], //z=25
+	[1,3,4,7,9,9,9,9], //1=26 --- čísla zatím nebyla přidána do seznamu kódů, jejich kód je totiž pětimístný a morse ho neumí zpracovat
+	[0,1,4,7,8,9,9,9], //2=27
+	[0,1,2,4,5,6,7,8], //3=28
+	[0,2,3,4,5,8,9,9] //4=29
 ]
 
-new morse[23] = [ //pole kódů pro znaky v morseovce: 1=tečka, 2=čárka
+new morse[26] = [ //pole kódů pro znaky v morseovce: 1=tečka, 2=čárka
 	1200, //a
 	2111, //b
 	2121, //c
@@ -49,11 +52,14 @@ new morse[23] = [ //pole kódů pro znaky v morseovce: 1=tečka, 2=čárka
 	2100, //n
 	2220, //o
 	1221, //p
+	2212, //q
 	1210, //r
 	1110, //s
 	2000, //t
 	1120, //u
 	1112, //v
+	1220, //w
+	2112, //x
 	2122, //y
 	2211 //z
 	]
