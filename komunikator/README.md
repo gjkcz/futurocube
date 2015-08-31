@@ -1,6 +1,7 @@
 #Rubik’s Futurocube komunikátor
 Tento komunikátor používá morseovu abecedu. První kostka je vysílač, druhá přijímač. Na vysílači uživatel zadává kód znaku v morseovce a přijímač tento znak zobrazí.
-
+### Instalace
+---bude doplněno---
 ### Ovládání
 Jako první se na stěně 0 zobrazí barevná ikona - klepněte na ni. Kostka v tu chvíli začne vyhledávat spojení s druhou kostkou. Totéž proveďte na druhé a přibližte kostky k sobě. Jakmile se spojení podaří, hlavní kostka se nastaví na vysílač a podřízená kostka na přijímač.
 
